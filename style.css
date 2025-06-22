@@ -163,6 +163,25 @@ h2.section-title::after {
     justify-content: space-between;
     align-items: center;
 }
+.logo-container {
+width: 60px; /* Increased size /
+height: 60px; / Increased size /
+border-radius: 50%;
+overflow: hidden;
+margin-right: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #000; / Add a background color to match the black part of the logo */
+}
+
+.logo-container img {
+width: 100%;
+height: auto; /* Allow height to adjust to aspect ratio /
+object-fit: contain; / Make sure the whole logo fits inside, might have some padding /
+/ object-fit: cover; - If you prefer cropping to fill the circle */
+}
+
 
 .logo {
     display: flex;
