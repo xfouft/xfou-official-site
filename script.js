@@ -7,9 +7,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const targetElement = document.querySelector(targetId);
 
         if (targetElement) {
-            // Adjust scroll position for fixed header (approx 80px height from CSS)
+            // Adjust scroll position for fixed header (approx 85px height)
+            const headerOffset = 85; // Height of your sticky header
+            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - headerOffset;
+
             window.scrollTo({
-                top: targetElement.offsetTop - 80,
+                top: offsetPosition,
                 behavior: 'smooth'
             });
         }
@@ -31,25 +35,23 @@ if (hamburger && mainNav) { // Check if elements exist before attaching listener
     });
 }
 
-// --- Dummy Project Inquiry Form Submission ---
+// --- Project Inquiry Form Submission ---
 const projectInquiryForm = document.querySelector('.project-inquiry-form');
 
 if (projectInquiryForm) { // Check if the form element exists on the page
     projectInquiryForm.addEventListener('submit', function(e) {
-        // IMPORTANT: For Formspree to work, you generally don't use e.preventDefault()
-        // if you want Formspree to handle the redirect to _next URL automatically.
-        // However, for adding a custom alert *before* redirect, you can use it.
-        // If you remove preventDefault(), Formspree will handle the submission and redirect.
+        // Formspree handles the actual submission and redirection to _next URL.
+        // We just provide an alert for user feedback.
 
-        // e.preventDefault(); // Uncomment if you want to prevent default form submission and manage redirection manually
-
-        // This alert is for immediate user feedback on the demo.
         alert('Your project inquiry has been sent to XFOU! We will get back to you within 24 hours. Thank you!');
-
-        // If you uncommented e.preventDefault(), you would manage redirection here,
-        // or rely solely on Formspree's action attribute to handle the redirect.
-        // For Formspree's standard functionality, the form action handles the post and redirect.
 
         projectInquiryForm.reset(); // Clear the form fields after submission
     });
 }
+
+// --- Initialize AOS (Animate On Scroll) Library ---
+// Ensure AOS library is loaded in index.html <head>
+// <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+// And AOS JS is loaded at the end of <body> after script.js
+// <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+// <script>AOS.init();</script> - This init is directly in index.html
