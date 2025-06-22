@@ -163,50 +163,7 @@ h2.section-title::after {
     justify-content: space-between;
     align-items: center;
 }
-.logo-container {
-width: 60px; /* Increased size /
-height: 60px; / Increased size /
-border-radius: 50%;
-overflow: hidden;
-margin-right: 10px;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: #000; / Add a background color to match the black part of the logo */
-}
 
-.logo-container img {
-width: 100%;
-height: auto; /* Allow height to adjust to aspect ratio /
-object-fit: contain; / Make sure the whole logo fits inside, might have some padding /
-/ object-fit: cover; - If you prefer cropping to fill the circle */
-}
-
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img.logo-white { /* Specific class for white logo */
-    height: 55px;
-    margin-right: 12px;
-    filter: brightness(0) invert(1); /* Makes a black logo white */
-}
-
-.logo span {
-    font-family: var(--font-heading);
-    font-size: 2.2rem;
-    margin-bottom: 0;
-    letter-spacing: 1px;
-    color: var(--clr-text-light); /* Plain white text for logo name */
-}
-
-.logo a {
-    color: inherit;
-    display: flex;
-    align-items: center;
-}
 
 .main-nav ul {
     list-style: none;
