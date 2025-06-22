@@ -165,7 +165,7 @@ h2.section-title::after {
     display: flex;
     align-items: center;
 }
-
+filter: brightness(0) invert(1); /* Ensure logo is white on dark bg if it's black by default */
 .main-nav ul {
     list-style: none;
     display: flex;
