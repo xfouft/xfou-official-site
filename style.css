@@ -1244,3 +1244,115 @@ section:nth-of-type(even) {
         font-size: 1.6rem;
     }
 }
+/* --- Thank You Modal Popup Styles --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2000; /* Sit on top (higher than header) */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity - dark overlay */
+    backdrop-filter: blur(5px); /* Frosted glass effect for background */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    opacity: 0; /* Start hidden for animation */
+    transition: opacity 0.3s ease-out;
+}
+
+.modal.show {
+    display: flex; /* Use flex to center content */
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--clr-dark-secondary); /* Dark background for modal */
+    margin: auto; /* Auto margin to center */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    position: relative;
+    max-width: 500px; /* Max width for modal */
+    text-align: center;
+    color: var(--clr-text-light);
+    border: 1px solid rgba(255,255,255,0.1);
+    transform: translateY(-50px); /* Start slightly up for slide-down animation */
+    opacity: 0;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.close-button {
+    color: var(--clr-text-secondary);
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--clr-accent-primary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-icon {
+    font-size: 4rem;
+    color: var(--clr-accent-secondary); /* Green checkmark */
+    margin-bottom: 20px;
+    animation: bounceIn 0.8s ease-out; /* Little bounce animation */
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+.modal-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--clr-text-light);
+}
+
+.modal-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--clr-text-secondary);
+    margin-bottom: 30px;
+}
+
+.modal-close-btn { /* Style for the close button inside modal */
+    background: var(--clr-gradient-primary);
+    color: var(--clr-text-light);
+    font-size: 1rem;
+    padding: 10px 25px;
+    border-radius: 50px;
+}
+
+/* Responsive for Modal */
+@media (max-width: 600px) {
+    .modal-content {
+        width: 90%;
+        padding: 30px;
+    }
+    .modal-icon {
+        font-size: 3rem;
+    }
+    .modal-content h2 {
+        font-size: 2rem;
+    }
+    .modal-content p {
+        font-size: 1rem;
+    }
+}
